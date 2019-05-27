@@ -111,20 +111,7 @@
         </ul>
     </div>
 </header>
-<section class='banner'>
-    <div class='container'>
-        <div class='row'>
-            <div class='slogan'>
-                <div class="slogan__first">
-                    <h1>aluminum club</h1>
-                </div>
-                <div class='slogan__second'>
-                    <h2>experience ray-ban</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 @yield('content')
 </body>
 @section('scripts')
