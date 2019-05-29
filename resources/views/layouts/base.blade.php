@@ -78,6 +78,7 @@
                 </div>
             </div>
         </div>
+        {!! menu('main', 'mymenu') !!}
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
@@ -90,6 +91,11 @@
                 </li>
             @endif
             @else
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
@@ -115,5 +121,6 @@
 @yield('content')
 </body>
 @section('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
 @show
 </html>
