@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <form action="{{asset('home')}}" method="POST">
+                        <form action="{{asset('home')}}" method="POST" enctype="multipart/form-data">
                             {!! csrf_field()!!}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
@@ -41,7 +41,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputFile">image input</label>
-                                <input name='picture' type="file" id="exampleInputFile">
+                                <input name='picture1' type="file" id="exampleInputFile">
                                 <p class="help-block">image</p>
                             </div>
                             <button type="submit" name='sub' class="btn btn-default">Submit</button>

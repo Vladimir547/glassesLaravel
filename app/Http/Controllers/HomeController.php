@@ -30,6 +30,13 @@ class HomeController extends Controller
 
     public function postIndex()
     {
+        $pic=\App::make('App\Libs\Imag')->url($_FILES['picture1']['tmp_name']);
+        if(!$pic)
+        {
+            $pic ='';
+        }
+
+        //dd($_FILES);
         //dd($_POST);
         $obj= new Product;
         $obj->name=$_POST['name'];
@@ -37,9 +44,9 @@ class HomeController extends Controller
         $obj->sales=$_POST['sales'];
         $obj->price=$_POST['price'];
         $obj->user_id=(isset(auth::user()->id))?Auth::user()->id:0;
-        $obj->status='new';
         $obj->catalog_id=0;
-        $obj->picture='';
+        $obj->picture=$pic;
+        $obj->status='new';
         $obj->save();
         return redirect()->back();
     }
