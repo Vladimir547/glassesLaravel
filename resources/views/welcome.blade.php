@@ -22,9 +22,9 @@
                                     <div class='item__text'>
                                         <h5>{{$one->name}}</h5>
                                         @if($one->sales)
-                                        <p><span>{{$one->price}}</span></p>
+                                            <p id='sale'>{{$one->sales}}<span>{{$one->price}}</span></p>
                                         @else
-                                            <p id={{$one->sales}}'>$460<span>{{$one->price}}</span></p>
+                                            <p><span>{{$one->price}}</span></p>
                                         @endif
                                     </div>
                                     <div class='item__cart circle'>
