@@ -1,4 +1,13 @@
 @extends('layouts.base')
+
+@section('scripts')
+    @parent
+    <script src="{{asset('js/modal.js')}}">
+    </script>
+
+@endsection
+
+
 @section('content')
     <section class='products'>
         <div class='container'>
@@ -8,49 +17,44 @@
                         <h3>featured products</h3>
                     </div>
                 </div>
+
                 @foreach($objs as $one)
-                        <div class='col-xl-3 col-lg-3 col-md-6 col-sm-12'>
-                            <div class='item'>
-                                <div class='glasses'>
-                                    @if($one->picture)
+                    <div class='col-xl-3 col-lg-3 col-md-6 col-sm-12'>
+                        <div class='item'>
+                            <div class='glasses'>
+                                @if($one->picture)
                                     <img src="{{asset('uploads/s_'.$one->picture)}}">
+                                @else
+                                    <img src="{{asset('img/nophoto.png')}}">
+                                @endif
+                            </div>
+                            <div class='item__info'>
+                                <div class='item__text'>
+                                    <h5>
+                                        <a href="#"
+                                           data_id="{{$one->id}}"
+                                           class="m_click">
+                                            {{$one->name}}
+                                        </a>
+                                    </h5>
+                                    @if($one->sales)
+                                        <p id='sale'>${{$one->sales}}<span>${{$one->price}}</span></p>
                                     @else
-                                        <img src="{{asset('img/nophoto.png')}}">
+                                        <p><span>${{$one->price}}</span></p>
                                     @endif
                                 </div>
-                                <div class='item__info'>
-                                    <div class='item__text'>
-                                        <h5>{{$one->name}}</h5>
-                                        @if($one->sales)
-                                            <p id='sale'>{{$one->sales}}<span>{{$one->price}}</span></p>
-                                        @else
-                                            <p><span>{{$one->price}}</span></p>
-                                        @endif
-                                    </div>
-                                    <div class='item__cart circle'>
-                                        <i class="fas fa-shopping-basket"></i>
-                                    </div>
+                                <div class='item__cart circle'>
+                                    <i class="fas fa-shopping-basket"></i>
                                 </div>
-                            </div>
-                        </div>
-
-                @endforeach
-                <div class='col-xl-3 col-lg-3 col-md-6 col-sm-12'>
-                    <div class='item'>
-                        <div class='glasses'>
-                            <img src="{{asset($one->picture)}}">
-                        </div>
-                        <div class='item__info'>
-                            <div class='item__text'>
-                                <h5>Etiam egestas velit.</h5>
-                                <p id='sale'>$460<span>$200.00</span></p>
-                            </div>
-                            <div class='item__cart circle'>
-                                <i class="fas fa-shopping-basket"></i>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
+                <p align="center">
+                    {!!$objs->links()!!}
+                </p>
+
             </div>
         </div>
     </section>

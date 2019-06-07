@@ -24,8 +24,8 @@
                                 <input type="text" class="form-control" name="price" id="exampleInputEmail1" placeholder="price">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Sale</label>
-                                <input type="text" class="form-control" name="sales" id="exampleInputEmail1" placeholder="sale">
+                                <label for="input__sale">Sale</label>
+                                <input type="text" class="form-control" name="sales" id="input__sale" placeholder="sale">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="body" id="exampleInputPassword1">description</textarea>

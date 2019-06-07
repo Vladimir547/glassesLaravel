@@ -4,6 +4,10 @@
 
 Route::post('home','HomeController@postIndex');
 
+/* AJAX */
+
+Route::post('/ajax/product','Ajax\ProductController@postIndex');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
