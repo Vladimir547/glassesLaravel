@@ -58,7 +58,7 @@
                         <li><a href="{{asset('/women')}}">women</a></li>
                         <li><a href="{{asset('/man')}}">men</a></li>
                         <li><a href="{{asset('/others')}}">other</a></li>
-                        <li><a href='#'>purchase</a></li>
+                        <li><a href='#'>{{$name}}</a></li>
                         <li><a href="{{asset('all')}}">map</a></li>
                     </ul>
                 </div>
@@ -119,11 +119,25 @@
         </ul>
     </div>
 </header>
-
 @yield('content')
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <ul>
+                @foreach($s_objs as $one)
+                    <li>
+                        <a href='{{asset($one->url)}}'>
+                            {{$one->name}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</footer>
 </body>
-<script src="{{asset('js/app.js')}}"></script>
-@section('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
+    @section('scripts')
 
-@show
+    @show
 </html>

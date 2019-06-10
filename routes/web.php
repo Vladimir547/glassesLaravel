@@ -12,6 +12,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('home/admin', 'HomeController@getAdmin');
+});
+
 /* GET */
 route::get('/','BaseController@getIndex');
 

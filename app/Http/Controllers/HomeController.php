@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+
 use Auth;
 use App\Product;
 use Illuminate\Http\Request;
@@ -49,5 +51,10 @@ class HomeController extends Controller
         $obj->status='new';
         $obj->save();
         return redirect()->back();
+
+    }
+    public function getAdmin(){
+        $users= User::all();
+        return response()->json($users);
     }
 }
