@@ -1,0 +1,11 @@
+<?php
+return[
+    'menu'=>[
+        'man'=>'Man',
+        'home'=>'Home',
+        'woman'=>'Woman',
+        'other'=>'Other',
+        'glasses'=>'Glasses',
+        'map'=>'Map'
+    ]
+];

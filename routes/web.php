@@ -15,9 +15,12 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['middleware' => 'admin'], function () {
     Route::get('home/admin', 'HomeController@getAdmin');
 });
+Route::group(['middleware' => 'lang'], function () {
+    route::get('/','BaseController@getIndex');
+});
 
 /* GET */
-route::get('/','BaseController@getIndex');
+
 
 Auth::routes();
 

@@ -8,7 +8,7 @@
     <title>glasses</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style/main.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('style/main.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/my.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -23,11 +23,28 @@
             <div class='col-md-6 col-sm-12'>
                 <div class='select__countries'>
                     <div class='language__wrap'>
-                        <label for="language">Language:</label>
-                        <select  name='language' id='language'>
-                            <option name='english'>English</option>
-                            <option name='russian'>Russian</option>
-                        </select>
+                        <ul>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <img id="imgNavSel" src="https://tattooscalculator.com/img/flag/Rus_40.jpg" alt="..." class="img-thumbnail icon-small">&nbsp;&nbsp;
+                                <span id="lanNavSel">Rus</span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu mumu" role="menu">
+                                <li><a id="navFra" href="{{asset('/?lang=fr')}}" class="language">
+                                        <img id="imgNavFra" src="https://tattooscalculator.com/img/flag/Fra_40.jpg" alt="France" class="img-thumbnail icon-small">&nbsp;
+                                        <span id="lanNavFra">Française</span>&nbsp;
+                                    </a></li>
+                                <li><a id="navEng" href="{{asset('/?lang=en')}}" class="language">
+                                        <img id="imgNavEng" src="https://tattooscalculator.com/img/flag/Eng_40.jpg" alt="English" class="img-thumbnail icon-small">&nbsp;
+                                        <span id="lanNavEng">English</span>&nbsp;
+                                    </a></li>
+                                <li><a id="navRus" href="{{asset('/?lang=ru')}}" class="language">
+                                        <img id="imgNavRus" src="https://tattooscalculator.com/img/flag/Rus_40.jpg" alt="Russia" class="img-thumbnail icon-small">&nbsp;
+                                        <span id="lanNavRus">Русский</span>&nbsp;
+                                    </a></li>
+                            </ul>
+                        </li>
+                        </ul>
                     </div>
                     <div class='country__wrap'>
                         <label for="country">Currency:</label>
@@ -48,18 +65,18 @@
             </div>
             <div class='col-lg-2 col-md-2'>
                 <div class='logo'>
-                    <a href='index.php'><img src="{{asset('./img/logo.png')}}"></a>
+                    <a href='/'><img src="{{asset('./img/logo.png')}}"></a>
                 </div>
             </div>
             <div class='col-lg-5 col-md-5'>
                 <div class='menu'>
                     <ul class='menu__header'>
-                        <li><a href="#">home</a></li>
-                        <li><a href="{{asset('/women')}}">women</a></li>
-                        <li><a href="{{asset('/man')}}">men</a></li>
-                        <li><a href="{{asset('/others')}}">other</a></li>
+                        <li><a href="/">{{__('menu.menu.home')}}</a></li>
+                        <li><a href="{{asset('/women')}}">{{__('menu.menu.woman')}}</a></li>
+                        <li><a href="{{asset('/man')}}">{{__('menu.menu.man')}}</a></li>
+                        <li><a href="{{asset('/others')}}">{{__('menu.menu.other')}}</a></li>
                         <li><a href='#'>{{$name}}</a></li>
-                        <li><a href="{{asset('all')}}">map</a></li>
+                        <li><a href="{{asset('all')}}">{{__('menu.menu.map')}}</a></li>
                     </ul>
                 </div>
             </div>

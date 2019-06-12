@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function postIndex()
+   /* public function postIndex()
     {
         $pic=\App::make('App\Libs\Imag')->url($_FILES['picture1']['tmp_name']);
         if(!$pic)
@@ -52,6 +53,25 @@ class HomeController extends Controller
         $obj->save();
         return redirect()->back();
 
+    }*/
+    public function postindex(ProductRequest $r)
+    {
+        $pic = \App::make('App\Libs\Imag')->URL($_FILES['picture1']['tmp_name']);
+        if (!$pic) {
+            $r['picture'] = '';
+        }
+        else {
+            $r['picture'] = $pic;
+        }
+
+        $r['user_id'] = (isset(Auth::user()->id))?Auth::user()->id:0;
+        //$r['picture'] = '';
+        $r['status'] = 'new';
+        $r['catalog_id'] = 2;
+        unset($r['_token']);
+        //dd($r->All());
+        Product::create($r->All());
+        return redirect()->back();
     }
     public function getAdmin(){
         $users= User::all();

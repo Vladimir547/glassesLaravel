@@ -18,6 +18,13 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
                                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" placeholder="name">
+                                @if($errors->has('name'))
+                                    <span class="help-block">
+                                        <e>
+                                            {{$errors->first('name')}}
+                                        </e>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Price</label>
@@ -26,6 +33,13 @@
                             <div class="form-group">
                                 <label for="input__sale">Sale</label>
                                 <input type="text" class="form-control" name="sales" id="input__sale" placeholder="sale">
+                                @if($errors->has('sales'))
+                                    <span class="help-block">
+                                        <e>
+                                            {{$errors->first('sales')}}
+                                        </e>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="body" id="exampleInputPassword1">description</textarea>
