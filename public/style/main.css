@@ -246,4 +246,8 @@ option{
 } 
 .item__cart i{
     font-size: 23px;
-} 
+}
+.my__frame{
+    height: 700px;
+    width: 100%;
+}

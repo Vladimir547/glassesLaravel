@@ -8,6 +8,8 @@ Route::post('home','HomeController@postIndex');
 
 Route::post('/ajax/product','Ajax\ProductController@postIndex');
 
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
@@ -23,6 +25,10 @@ Route::group(['middleware' => 'lang'], function () {
 
 
 Auth::routes();
+
+Route::get('/users','UserController@getAll');
+
+Route::get('/user/{id}','UserController@getOne');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
